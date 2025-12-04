@@ -1,3 +1,10 @@
+import { createClient } from '@supabase/supabase-js';
+
+// Initialize Supabase client
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -12,20 +19,46 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handler
-const contactForm = document.querySelector('.contact-form');
+// Form submission handler with Supabase
+const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
         // Get form data
-        const formData = new FormData(this);
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
         
-        // Show success message (you can customize this)
-        alert('Thank you for your message! We will get back to you soon.');
-        
-        // Reset form
-        this.reset();
+        try {
+            // Insert data into Supabase
+            const { data, error } = await supabase
+                .from('contact_messages')
+                .insert([formData])
+                .select();
+            
+            if (error) throw error;
+            
+            // Success
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            contactForm.reset();
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('Sorry, there was an error sending your message. Please try again.');
+        } finally {
+            // Re-enable button
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+        }
     });
 }
 
