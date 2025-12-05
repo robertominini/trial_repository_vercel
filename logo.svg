@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500">
+  <!-- Blue S-shaped ribbon symbol -->
+  <g transform="translate(50, 50)">
+    <!-- Top curve of the S -->
+    <path d="M 150 50 C 100 50, 60 90, 60 140 C 60 180, 85 210, 120 230 C 155 250, 200 260, 200 300 C 200 330, 175 355, 140 355 C 105 355, 80 330, 80 295" 
+          fill="none" stroke="white" stroke-width="45" stroke-linecap="round"/>
+    
+    <!-- Bottom curve of the S -->
+    <path d="M 80 295 C 80 260, 105 235, 140 235 C 175 235, 200 210, 200 170 C 200 130, 175 105, 140 105" 
+          fill="none" stroke="white" stroke-width="45" stroke-linecap="round"/>
+    
+    <!-- Filled S shape -->
+    <path d="M 120 30 C 160 30, 200 50, 220 85 C 240 120, 240 165, 210 200 C 180 235, 130 245, 100 270 C 70 295, 60 330, 70 365 C 80 400, 115 425, 155 425 C 195 425, 230 405, 245 370 L 210 350 C 200 370, 180 385, 155 385 C 130 385, 110 365, 110 340 C 110 315, 125 295, 150 280 C 185 260, 230 250, 260 215 C 290 180, 290 130, 265 90 C 240 50, 190 20, 140 20 C 90 20, 45 50, 30 90 L 65 110 C 75 75, 95 50, 120 30 Z" 
+          fill="white"/>
+  </g>
+  
+  <!-- BLUE text in white -->
+  <text x="420" y="240" font-family="Arial, sans-serif" font-size="180" font-weight="bold" fill="white">BLUE</text>
+  
+  <!-- corporate wellness text in white -->
+  <text x="420" y="330" font-family="Arial, sans-serif" font-size="70" font-weight="300" fill="white">corporate</text>
+  <text x="720" y="330" font-family="Arial, sans-serif" font-size="70" font-weight="300" fill="white">wellness</text>
+</svg>

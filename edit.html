@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Editor</title>
+    <link rel="stylesheet" href="edit.css">
+</head>
+<body>
+    <div class="editor-container">
+        <header class="editor-header">
+            <div class="header-content">
+                <a href="index.html" class="back-link">← Back to Home</a>
+                <h1>📝 Feed Editor</h1>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="previewBtn">👁️ Preview</button>
+                    <button class="btn btn-primary" id="saveBtn">💾 Save Changes</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="editor-main">
+            <aside class="sidebar">
+                <h2>Feed Structure</h2>
+                <div id="feedStructure" class="feed-structure">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <button class="btn btn-add" id="addItemBtn">+ Add New Item</button>
+            </aside>
+
+            <main class="editor-content">
+                <div id="editorForm" class="editor-form">
+                    <div class="welcome-message">
+                        <h2>👈 Select an item from the sidebar to start editing</h2>
+                        <p>You can reorder items by dragging them in the sidebar</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div id="addItemModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Add New Feed Item</h2>
+            <div class="item-type-selector">
+                <button class="item-type-btn" data-type="intro">
+                    <div class="icon">📄</div>
+                    <h3>Intro Screen</h3>
+                    <p>Lesson introduction with details</p>
+                </button>
+                <button class="item-type-btn" data-type="video">
+                    <div class="icon">🎬</div>
+                    <h3>Video Lesson</h3>
+                    <p>YouTube video embed</p>
+                </button>
+                <button class="item-type-btn" data-type="explanation">
+                    <div class="icon">💡</div>
+                    <h3>Explanation Screen</h3>
+                    <p>Tips and takeaways</p>
+                </button>
+                <button class="item-type-btn" data-type="congratulations">
+                    <div class="icon">🎉</div>
+                    <h3>Congratulations</h3>
+                    <p>End of course celebration</p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="edit.js"></script>
+</body>
+</html>
